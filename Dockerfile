@@ -74,7 +74,8 @@ ARG NB_UID
 
 # Install only runtime deps
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get -y update && apt-get -y install build-essential g++ libxft2 libgmp10  libreadline8 gawk tcl libffi7  python3-pip npm && \
+RUN apt-get -y update && apt-get -y install build-essential g++ libxft2 libgmp10  libreadline8 gawk tcl libffi7  python3-pip git && \
+    apt-get -y --no-install-recommends install npm && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN npm install -g netlistsvg && mkdir -p /opt
 
